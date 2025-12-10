@@ -36,10 +36,19 @@ local timer = timerDuration
 -- FUNCTIONS
 adipose.onStageChange = function(_, _, _, _) end
 
+adipose.onWeightChange = function(_, _, _, _) end
+
+
 --- Set function that will be called when weight stage changes
 --- @param callback fun(weight: number, index: number, granularity: number, stuffed: number)
 function adipose.setOnStageChange(callback)
     adipose.onStageChange = callback
+end
+
+--- Set function that will be called when weight changes
+--- @param callback fun(weight: number, index: number, granularity: number, stuffed: number)
+function adipose.setOnWeightChange(callback)
+    adipose.onWeightChange = callback
 end
 
 --- Calculate weight from index
@@ -236,10 +245,12 @@ function adipose.setWeight(amount, forceUpdate)
 
     if oldindex ~= index or forceUpdate then
         oldindex = index
-        adipose.onStageChange(amount, index, granularity, stuffed)
-        setModelPartsVisibility(index)
+		
+		setModelPartsVisibility(index)
+		adipose.onStageChange(amount, index, granularity, stuffed)
     end
-
+	adipose.onWeightChange(amount, index, granularity, stuffed)
+	
     setGranularity(index, granularity)
     setStuffed(index, stuffed)
 
