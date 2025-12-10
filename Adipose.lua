@@ -245,12 +245,12 @@ function adipose.setWeight(amount, forceUpdate)
 
     if oldindex ~= index or forceUpdate then
         oldindex = index
-		
-		setModelPartsVisibility(index)
-		adipose.onStageChange(amount, index, granularity, stuffed)
+
+        setModelPartsVisibility(index)
+        adipose.onStageChange(amount, index, granularity, stuffed)
     end
-	adipose.onWeightChange(amount, index, granularity, stuffed)
-	
+    adipose.onWeightChange(amount, index, granularity, stuffed)
+
     setGranularity(index, granularity)
     setStuffed(index, stuffed)
 
@@ -274,7 +274,7 @@ function adipose.adjustWeightByAmount(amount)
         adipose.minWeight, adipose.maxWeight)
     pings.AdiposeSetWeight(amount)
 end
-
+    
 --- Adjust weight by index
 ---@param amount integer Weight stage to gain (may be negative to lose weight)
 function adipose.adjustWeightByStage(amount)
