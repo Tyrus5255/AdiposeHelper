@@ -58,7 +58,7 @@ end
 
 adipose.setOnStageChange( function (amount, index, granularity, stuffed)
 	for k, v in pairs(adipose.weightStages[index].scalingList) do
-		pehkui.setScale(k, v)
+		pehkui.setScale(k, v, false)
 	end
 end)
 
@@ -74,7 +74,7 @@ local function doTimer()
 end
 
 function events.tick()
-	if not doTimer() or not player:isLoaded() then return end
+	if not doTimer() or not player:isLoaded() and not player:getGamemode() == 'CREATIVE' then return end
 
 	foodQueue = foodQueue + checkFood()
 	
