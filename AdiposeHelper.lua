@@ -74,7 +74,7 @@ local function doTimer()
 end
 
 function events.tick()
-	if not doTimer() or not player:isLoaded() and not player:getGamemode() == 'CREATIVE' then return end
+	if not doTimer() or not player:isLoaded() and player:getGamemode() == 'CREATIVE' then return end
 
 	foodQueue = foodQueue + checkFood()
 	
