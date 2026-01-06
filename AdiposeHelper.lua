@@ -8,28 +8,38 @@ local adipose = require('Adipose')
 adiposeHelper.syncTimer = config:load("adiposeHelper.syncTimer") or 200
 adiposeHelper.weightRate = config:load("adiposeHelper.weightRate") or 0.1
 adiposeHelper.enableWeightLoss = config:load("adiposeHelper.enableWeightLoss") or true
+adiposeHelper.scaling = config:load("adiposeHelper.scaling") or true
+
 
 local foodQueue = 0
 
 --Configs
 
---How many ticks between each adipose helper cycle, default : 200
+
+
+--How many ticks between each adipose helper cycle, | default : 200
 function adiposeHelper.setSyncTimer(value)
     adiposeHelper.syncTimer = value
 	config:save("adiposeHelper.syncTimer", value)
 end
 
 
---Overall multiplier for weight gained/lost, default : 0.1
+--Overall multiplier for weight gained/lost, | default : 0.1
 function adiposeHelper.setWeightRate(value)
     adiposeHelper.weightRate = value
 	config:save("adiposeHelper.weightRate", value)
 end
 
---Sets whether weight loss is enabled default : true
+--Sets whether weight loss is enabled | default : true
 function adiposeHelper.setWeightLoss(value)
     adiposeHelper.enableWeightLoss = value
 	config:save("adiposeHelper.enableWeightLoss", value)
+end
+
+--Sets whether adiposeHelper will control pehkui scaling | default : true
+function adiposeHelper.setScaling(value)
+    adiposeHelper.scaling = value
+	config:save("adiposeHelper.scaling", value)
 end
 
 --Helper Functions
@@ -57,9 +67,11 @@ end
 
 
 adipose.setOnStageChange( function (amount, index, granularity, stuffed)
-	for k, v in pairs(adipose.weightStages[index].scalingList) do
-		pehkui.setScale(k, v, false)
-	end
+    if adiposeHelper.scaling then
+        for k, v in pairs(adipose.weightStages[index].scalingList) do
+            pehkui.setScale(k, v, false)
+        end
+    end
 end)
 
 local timer = adiposeHelper.syncTimer
