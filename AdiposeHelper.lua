@@ -1,4 +1,4 @@
-
+if not player:isHost() then return end
 local adiposeHelper = {}
 
 local pehkui = require('Pehkui')
