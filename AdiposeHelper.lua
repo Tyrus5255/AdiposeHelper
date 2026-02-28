@@ -54,13 +54,13 @@ local function checkFood()
 	
 	local gainThreshold = 2+(math.floor(10*(absWeight*9))/10)
 	
-	local deltaWeightGain = math.max((player:getSaturation() - gainThreshold) , 0)
+	adiposeHelper.deltaWeightGain = math.max((player:getSaturation() - gainThreshold) , 0)
 	
-	local deltaWeightLoss = (5*absWeight*math.max(16-player:getFood(),0)/20) * bool_to_number(adiposeHelper.enableWeightLoss)
+	adiposeHelper.deltaWeightLoss = (5*absWeight*math.max(16-player:getFood(),0)/20) * bool_to_number(adiposeHelper.enableWeightLoss)
 	
-	adiposeHelper.deltaWeight = (deltaWeightGain-deltaWeightLoss) * adiposeHelper.weightRate
+	adiposeHelper.deltaWeight = (adiposeHelper.deltaWeightGain-adiposeHelper.deltaWeightLoss) * adiposeHelper.weightRate
 	
-	--print(deltaWeightGain, deltaWeightLoss, adiposeHelper.deltaWeight)
+	--print(adiposeHelper.deltaWeightGain, adiposeHelper.deltaWeightLoss, adiposeHelper.deltaWeight)
 	
 	return adiposeHelper.deltaWeight
 end
