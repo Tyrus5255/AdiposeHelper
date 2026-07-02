@@ -33,12 +33,13 @@ Figura library that adds Weight Gain functionality with animation support.
 
 ## 🛠️ Installation
 
-1. Download the file [`Adipose.lua`](https://github.com/nexidict/Adipose-API/blob/main/Adipose.lua) and drop it into your Figura avatar project.
+1. Download the file [`Adipose.lua`](https://github.com/nexidict/Adipose-API/blob/main/Adipose.lua) and [`AdiposeHelper.lua`](https://github.com/Tyrus5255/AdiposeHelper/blob/main/AdiposeHelper.lua) drop them into your Figura avatar project.
 
 2. Import the library:
 
     ```lua
     local adipose = require('Adipose')
+    local adiposeHelper = require('AdiposeHelper')
     ```
 
 3. Create and configure stages:
