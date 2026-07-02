@@ -1,7 +1,7 @@
-# 🍔 Adipose API 
+# 🔧 Adipose Helper 
 
 
-Figura library that adds Weight Gain functionality with animation support.
+Figura library to support AdiposeAPI adding Pehkui support and Weight Gain mechanics 
 
 **Table of Contents**
 
@@ -24,7 +24,7 @@ Figura library that adds Weight Gain functionality with animation support.
     - [Set Stuffed Animation](#setstuffedanimation)
     - [Set Scaling List](#setscaling)
 
-## ⚙️ Features
+## ⚙️ Features (from adiposeAPI)
 
 - **Staged Based Weight Gain**: designate Weight Stages with different modelparts or even whole models.
 - **Granular Weight Gain**: use an animation to smooth out the transition between stages.
