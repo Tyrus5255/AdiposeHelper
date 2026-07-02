@@ -1,7 +1,9 @@
 # 🔧 Adipose Helper 
 
 
-Figura library to support AdiposeAPI adding Pehkui support and Weight Gain mechanics 
+Figura library to support AdiposeAPI adding Pehkui support and Weight Gain mechanics.
+
+Requires both [AdiposeAPI](https://github.com/nexidict/Adipose-API) and [Pehkui Figura](https://github.com/nexidict/Pehkui-Figura).
 
 **Table of Contents**
 
